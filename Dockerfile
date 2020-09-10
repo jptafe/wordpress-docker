@@ -9,6 +9,7 @@ RUN set -eux; \
         apt-get install -y --no-install-recommends \
                 curl \
                 vim \
+                less \
                 default-mysql-client \
                 git \
                 wget \
@@ -21,12 +22,19 @@ COPY . .
 # /var/www/html/wp-content/themes/
 # /var/www/html/wp-content/plugins/
 
-RUN wget https://getcomposer.org/download/1.5.5/composer.phar
+RUN wget https://getcomposer.org/download/1.10.13/composer.phar
 RUN chmod +x composer.phar
 RUN mv composer.phar /usr/local/bin/composer
 
 RUN set -eux; \
     COMPOSER_MEMORY_LIMIT=-1 /usr/local/bin/composer global require wp-cli/wp-cli-bundle 
+
+RUN set -eux; \
+    ~/.composer/vendor/wp-cli/wp-cli/bin/wp core download --allow-root
+RUN set -eux; \
+    rm -rf /var/www/html
+RUN set -eux; \
+    ln -s /var/www/html /opt/wordpress/wp
 
 EXPOSE 80
 

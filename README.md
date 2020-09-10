@@ -8,7 +8,7 @@
 
 ```
 
-### 
+### A exploration of the technologies necessary to build WordPress in Microservices
 
 # OBJECTIVES 
 * develop a persistent service with an epheremal microservice 
@@ -21,7 +21,7 @@
 * linux, bash 
 
 # FOLDER STRUCTURE
-* 
+*  
 
 # INSTALLATION:
 

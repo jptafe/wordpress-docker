@@ -3,7 +3,9 @@ version: '3.1'
 
 services:
   wp:
-    image: .
+    build: .
+    depends_on:
+      - db
     restart: always
     environment:
       WORDPRESS_DB_HOST: db
@@ -16,15 +18,17 @@ services:
     image: mariadb:10
     restart: always
     environment:
-      MYSQL_DATABASE: wp 
-      MYSQL_USER: wp 
+      MYSQL_DATABASE: wp
+      MYSQL_USER: wp
       MYSQL_PASSWORD: secret
   phpmyadmin:
     image: phpmyadmin:5
+    depends_on:
+      - db
     environment:
       PMA_HOST: db
       PMA_USER: wp
-      PMA_PASSWORD: secret 
+      PMA_PASSWORD: secret
       PMA_ARBITRARY: 1
       UPLOAD_LIMIT: 8192
     restart: always
