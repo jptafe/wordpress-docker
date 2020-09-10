@@ -30,11 +30,10 @@ RUN set -eux; \
     COMPOSER_MEMORY_LIMIT=-1 /usr/local/bin/composer global require wp-cli/wp-cli-bundle 
 
 RUN set -eux; \
-    ~/.composer/vendor/wp-cli/wp-cli/bin/wp core download --allow-root
-RUN set -eux; \
-    rm -rf /var/www/html
-RUN set -eux; \
-    ln -s /var/www/html /opt/wordpress/wp
+    ~/.composer/vendor/wp-cli/wp-cli/bin/wp core download --allow-root \
+    --path=/var/www/html
+
+# Add modules/themes here
 
 EXPOSE 80
 
