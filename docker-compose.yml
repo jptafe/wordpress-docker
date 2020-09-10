@@ -1,0 +1,32 @@
+#   (or "http://$(docker-machine ip):8080" if using docker-machine)
+version: '3.1'
+
+services:
+  wp:
+    image: .
+    restart: always
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: wp
+      WORDPRESS_DB_PASSWORD: secret
+      WORDPRESS_DB_NAME: wp
+    ports:
+      - 8080:80
+  db:
+    image: mariadb:10
+    restart: always
+    environment:
+      MYSQL_DATABASE: wp 
+      MYSQL_USER: wp 
+      MYSQL_PASSWORD: secret
+  phpmyadmin:
+    image: phpmyadmin:5
+    environment:
+      PMA_HOST: db
+      PMA_USER: wp
+      PMA_PASSWORD: secret 
+      PMA_ARBITRARY: 1
+      UPLOAD_LIMIT: 8192
+    restart: always
+    ports:
+      - 8088:80
