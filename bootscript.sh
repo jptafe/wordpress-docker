@@ -1,4 +1,5 @@
 #!/bin/bash
+sleep 25s
 
 #install default wordpress instance
 /root/.composer/vendor/wp-cli/wp-cli/bin/wp core download --allow-root \
@@ -7,12 +8,12 @@
 /root/.composer/vendor/wp-cli/wp-cli/bin/wp --allow-root \
     config create \
     --dbname="wp" --dbuser="wp" --dbpass="secret" --dbhost="db" \
-    --path=/var/www/html \
+    --path=/var/www/html
     
 /root/.composer/vendor/wp-cli/wp-cli/bin/wp --allow-root \
-    wp core install \
+    core install \
     --path=/var/www/html \
-    --url="https://sitedomain.com"  --title="Blog Title" \
+    --url="http://localhost:8080" --title="Blog Title" \
     --admin_user="admon" --admin_password="enter_your_password" --admin_email="email@email.com"
 
 #copy customisations made from previous runs
