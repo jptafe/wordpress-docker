@@ -9,6 +9,11 @@
     --url=domain.com \
     --dbname=db --dbuser=wp --dbpass=secret --dbhost=db \
     --path=/var/www/html \
+    
+/root/.composer/vendor/wp-cli/wp-cli/bin/wp --allow-root \
+    wp core install \
+    --path=/var/www/html \
+    --url="https://sitedomain.com"  --title="Blog Title" \
     --admin_user="admon" --admin_password="enter_your_password" --admin_email="email@email.com"
 
 #copy customisations made from previous runs
