@@ -29,9 +29,9 @@ RUN mv composer.phar /usr/local/bin/composer
 RUN set -eux; \
     COMPOSER_MEMORY_LIMIT=-1 /usr/local/bin/composer global require wp-cli/wp-cli-bundle 
 
-RUN set -eux; \
-    ~/.composer/vendor/wp-cli/wp-cli/bin/wp core download --allow-root \
-    --path=/var/www/html
+#RUN set -eux; \
+#    ~/.composer/vendor/wp-cli/wp-cli/bin/wp core download --allow-root \
+#    --path=/var/www/html
 
 # Add modules/themes here
 
