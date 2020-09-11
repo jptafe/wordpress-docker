@@ -8,7 +8,8 @@
     config create \
     --url=domain.com \
     --dbname=db --dbuser=wp --dbpass=secret --dbhost=db \
-    --path=/var/www/html --user=admon
+    --path=/var/www/html \
+    --admin_user="admon" --admin_password="enter_your_password" --admin_email="email@email.com"
 
 #copy customisations made from previous runs
 
