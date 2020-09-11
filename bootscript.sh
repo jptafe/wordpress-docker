@@ -6,7 +6,6 @@
 
 /root/.composer/vendor/wp-cli/wp-cli/bin/wp --allow-root \
     config create \
-    --url=domain.com \
     --dbname="wp" --dbuser="wp" --dbpass="secret" --dbhost="db" \
     --path=/var/www/html \
     
