@@ -21,7 +21,8 @@
 * linux, bash 
 
 # FOLDER STRUCTURE
-*  
+* /wp-content - A direct copy of Wordpress custom configurations
+* /sql - Database dump WordPress
 
 # INSTALLATION:
 
@@ -40,3 +41,9 @@ docker-compose up
 # Run in Google Cloud
 
 [![Run on Google Cloud](https://deploy.cloud.run/button.svg)](https://deploy.cloud.run)
+
+```
+#EXPORT these ENV variables in the gcloud shell
+CLOUDSDK_PYTHON: python3
+LD_LIBRARY_PATH: "/usr/local/lib"
+```

@@ -19,9 +19,6 @@ RUN set -eux; \
 WORKDIR /opt/wordpress
 COPY . .
 
-# /var/www/html/wp-content/themes/
-# /var/www/html/wp-content/plugins/
-
 RUN wget https://getcomposer.org/download/1.10.13/composer.phar
 RUN chmod +x composer.phar
 RUN mv composer.phar /usr/local/bin/composer

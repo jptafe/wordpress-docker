@@ -12,14 +12,15 @@ sleep 25s
     --path=/var/www/html
     
 # build new default site
-/root/.composer/vendor/wp-cli/wp-cli/bin/wp --allow-root \
-    core install \
-    --url="http://localhost:8080" --title="Blog Title" \
-    --admin_user="admon" --admin_password="enter_your_password" --admin_email="email@email.com" \
-    --path=/var/www/html
+#/root/.composer/vendor/wp-cli/wp-cli/bin/wp --allow-root \
+#    core install \
+#    --url="http://localhost:8080" --title="Blog Title" \
+#    --admin_user="admon" --admin_password="enter_your_password" --admin_email="email@email.com" \
+#    --path=/var/www/html
 
 #copy customisations made from previous runs
 cp -r wp-content/uploads /var/www/html/wp-content/uploads
+chmod -R 777 /var/www/html/wp-content/uploads
 
 #import database that was exported
 /root/.composer/vendor/wp-cli/wp-cli/bin/wp --allow-root \
