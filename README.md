@@ -47,3 +47,17 @@ docker-compose up
 CLOUDSDK_PYTHON: python3
 LD_LIBRARY_PATH: "/usr/local/lib"
 ```
+
+
+```
+#beta test script 
+
+#goto wordpress folder
+cd /opt/bitnami/apps/wordpress/htdocs
+#install git
+apt-get install git --force-yes
+git clone https://github.com/jptafe/wpsie
+#update wp
+wp core update
+wp plugin update --all
+```
