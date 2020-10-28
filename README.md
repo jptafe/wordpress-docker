@@ -61,3 +61,32 @@ git clone https://github.com/jptafe/wpsie
 wp core update
 wp plugin update --all
 ```
+```
+### CREATE
+
+mkdir my_new_wp_project
+cd my_new_wp_project
+
+composer init -n
+composer require wp-cli/wp-cli-bundle
+
+wp core download
+mysql -u root -e 'create database my_wp'
+#mysql -u root -e "grant all privileges on my_wp.* To sombody@localhost IDENTIFIED  BY 'pass'"
+
+./wp config create --dbname="my_wp" --dbuser="root" --dbpass="" --dbhost="localhost"
+./wp core install --url="http://localhost:8080" --title="Blog Title" --admin_user="admon" --admin_password="enter_your_password" --admin_email="email@email.com"
+
+./wp plugin install woocommerce
+./wp plugin activate woocommerce
+
+### BACKUP
+./wp db export
+#backup wp-content/uploads #folder
+
+## RESTORE
+wp core update
+wp plugin update --all
+./wp db import
+wp search-replace "http://dev:8080" "http://prod:9090"
+```
